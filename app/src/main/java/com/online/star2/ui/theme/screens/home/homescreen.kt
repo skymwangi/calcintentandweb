@@ -1,7 +1,7 @@
 package com.online.star2.ui.theme.screens.home
 
 
-import android.R
+
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -20,9 +20,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 
 @Composable
-fun Homescreen(modifier: Modifier = Modifier) {
+fun Homescreen(navController: NavHostController) {
     Column (verticalArrangement = Arrangement.SpaceEvenly,
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier
@@ -36,7 +39,7 @@ fun Homescreen(modifier: Modifier = Modifier) {
             fontWeight = FontWeight.Bold,
             color = Color.Red
         )
-        Button(onClick = {/*TODO*/},
+        Button(onClick = {navController.navigate("calc")},
             colors = ButtonDefaults.buttonColors(containerColor = Color.White),
             modifier = Modifier.width(300.dp)
         ) {
@@ -46,7 +49,7 @@ fun Homescreen(modifier: Modifier = Modifier) {
                 color = Color.Black
                 )
         }
-        Button(onClick = {/*TODO*/},
+        Button(onClick = {navController.navigate("web")},
             colors = ButtonDefaults.buttonColors(containerColor = Color.White),
             modifier = Modifier.width(300.dp)
         ) {
@@ -56,7 +59,7 @@ fun Homescreen(modifier: Modifier = Modifier) {
                 color = Color.Black
             )
         }
-        Button(onClick = {/*TODO*/},
+        Button(onClick = {navController.navigate("intent")},
             colors = ButtonDefaults.buttonColors(containerColor = Color.White),
             modifier = Modifier
                 .width(300.dp)
@@ -75,6 +78,6 @@ fun Homescreen(modifier: Modifier = Modifier) {
 @Preview
 @Composable
 private fun Homescreenprev() {
-    Homescreen()
+    Homescreen(rememberNavController())
 
 }
